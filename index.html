@@ -5,11 +5,17 @@
   <title>Vault Hunter</title>
 
   <style>
-    *,
+/*  {
+  box-sizing: border-box;
+} */
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
+
 
 @font-face {
   font-family: 'Your-Borderlands-Font';
@@ -60,6 +66,7 @@ button:hover {
   background-color: hwb(32 6% 4%); 
 }
 
+/* Styles for select dropdowns and text inputs */
 select,
 input[type="text"] {
   /* width: 20%; */
@@ -70,6 +77,7 @@ input[type="text"] {
   border: 2px solid hwb(199 2% 20%);
 }
 
+/* Container for selected items */
 #selectedItems {
   border: 2px solid #135283;
   display: flex;
@@ -86,6 +94,7 @@ input[type="text"] {
   background-repeat: no-repeat;*/
 }
 
+/* Image styling */
 img {
   max-width: 600px;
   /* border: 2px solid #1462d6; */
@@ -121,6 +130,8 @@ img {
   background-position: center;
   background-repeat: no-repeat;
   }
+
+  /* Container for main content */
 .container {
   display: flex;
   flex-direction: column;
@@ -139,6 +150,7 @@ img {
   /* border: 2px solid orange; */
 }
 
+/* Container for hunters */
 .hunters-con {
   display: flex;
   flex-direction: column;
@@ -158,7 +170,7 @@ img {
 }
  
 
-
+/* Container for item information */
 .item-info-con {
   display: flex;
   flex-shrink: 5;
@@ -167,6 +179,7 @@ img {
   /* width: 80%; */
 }
 
+/* Styling for items in inventory */
 .inventory-item {
   font-size: 28px;
   color: #c1f1f5;
@@ -190,7 +203,9 @@ img {
   gap: 10px; /* Space between items */
   justify-content: center; /* Center items horizontally */
   max-width: 100%;
+  width: 100%;
   margin: 0 auto; /* Center the container */
+  
 }
 
 .image-and-info-container {
@@ -198,6 +213,7 @@ img {
   flex-direction: column; /* Stack image and info vertically */
   align-items: center; /* Center items horizontally */
 }
+
 .enemy-info-con {
   display: flex;
   justify-content: center; /* Center horizontally */
@@ -212,7 +228,7 @@ img {
   flex-direction: column; /* Stack items vertically */
   align-items: center; /* Center items horizontally */
   flex-basis: calc(15% - 10px); 
-  width: 1900px;
+  width: 100%;
   height: auto; 
   box-sizing: border-box;
   border-right: 2px solid #00ccff; /* Blue vertical line */
@@ -221,7 +237,7 @@ img {
   background-size: 600% !important;
   background-position:  -20% top !important;
   position: relative;
-  overflow: hidden; 
+ 
 }
 
 .enemy-div::before {
@@ -256,6 +272,8 @@ img {
   color: rgb(248, 241, 231);
 }
 
+
+
 #enemyImage {
   /* Styles for the image, ensure it doesn't stretch or skew */
   max-width: 700px; 
@@ -278,7 +296,9 @@ img {
 }
 
 
-
+.health-text {
+  text-align: center;
+}
 
 .shields-container {
   display: flex;
@@ -332,6 +352,23 @@ button.highlight {
 #toggleView:hover {
   opacity: 1; /* Fully opaque on hover */
 }
+
+@media screen and (max-width: 768px) {
+  #enemiesList {
+    flex-direction: row;
+    flex-wrap: wrap; 
+  }
+
+  .enemy-div {
+    flex-basis: calc(40% - 10px); /* Each enemy takes half the width */
+    margin-right: 10px; 
+    margin-bottom: 10px; /* Add bottom margin for wrapped items */
+    max-width: none; /* Override any max-width if set */
+  }
+
+  
+}
+
   </style>
 </head>
 
@@ -1548,6 +1585,9 @@ function removeShield(enemyIndex, shieldIndex) {
 // Create Adjustment Div for Health
 function createAdjustmentDiv(currentValue, callback) {
   const div = document.createElement('div');
+  div.style.display = 'flex';
+  div.style.alignItems = 'center';
+  div.style.justifyContent = 'space-between';
 
   const decreaseButton = document.createElement('button');
   decreaseButton.textContent = '-';
@@ -1558,7 +1598,9 @@ function createAdjustmentDiv(currentValue, callback) {
   increaseButton.addEventListener('click', () => callback(1));
 
   const valueSpan = document.createElement('span');
-  valueSpan.textContent = ` Health: ${currentValue} `;
+  valueSpan.className = 'health-text';
+valueSpan.textContent = ` Health: ${currentValue} `;
+  
 
   div.appendChild(decreaseButton);
   div.appendChild(valueSpan);
