@@ -4,153 +4,342 @@
   <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
   <title>Vault Hunter</title>
   <style>
-    /* * {
-      box-sizing: border-box;
-    } */
-
     *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-    @font-face {
-      font-family: 'Your-Borderlands-Font';
-      src: url('https://fonts.googleapis.com/css2?family=Orbitron=swap') format('woff2');
-    }
+@font-face {
+  font-family: 'Your-Borderlands-Font';
+  src: url('https://fonts.googleapis.com/css2?family=Orbitron=swap') format('woff2');
+}
 
-    body {
-      font-family: 'Orbitron', sans-serif;
-      margin: 20px;
-      background-color: #121212;
-      color: #9dfcff;
-      /* Light text */
-      background-image: url('https://cdn.discordapp.com/attachments/1138311293720330240/1155056245192007690/backgroundimage2.jpg');
-      /* Replace with your image URL */
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
+body {
+  font-family: 'Orbitron', sans-serif;
+  margin: 20px;
+  background-color: rgb(24, 26, 27);
+  color: #7fd2f3;
+  /* Light text */
+  background-image: url('./assets/hunters/HuntersBackgroundv2.png');
+  background-size: 99% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
-    /* Add background colors to item type headers */
-    h3 {
-      background-color: rgb(13, 110, 155);
-      color: #e6e0e0;
-      padding: 8px;
-      margin-top: 16px;
-      border-radius: 4px;
-      text-shadow: 3px px 2px #000;
-      text-align: center;
+/* Add background colors to item type headers */
+h3 {
+  background-color: rgba(3, 175, 255, 0.418);
+  
+  color: rgb(225, 250, 250);
+  padding: 8px;
+  margin-top: 16px;
+  border-radius: 4px;
+  text-shadow: 3px 3px 2px #000;
+  text-align: center;
+  
 
-    }
+}
 
-    button {
-      font-family: 'Orbitron', sans-serif;
-      margin-top: 0px;
-      background-color: hsl(212, 83%, 27%);
-      border: 3px solid #000;
-      color: rgb(172, 255, 255);
-      padding: 15px 32px;
-      text-align: center;
-      text-decoration: none;
-      font-size: 16px;
-      cursor: pointer;
-      text-shadow: 2px 2px 2px #000;
-    }
+button {
+  font-family: 'Orbitron', sans-serif;
+  margin-top: 0px;
+  background-color: hsl(212, 83%, 27%);
+  border: 3px solid #000;
+  color: rgb(172, 255, 255);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  text-shadow: 2px 2px 2px #000;
+}
 
-    button:hover {
-      background-color: hwb(0 81% 19%);
-    }
+button:hover {
+  background-color: hwb(32 6% 4%); 
+}
 
-    select,
-    input[type="text"] {
-      /* width: 20%; */
-      padding: 12px 20px;
-      margin: 8px 0;
-      background-color: #121212;
-      color: hsl(0, 0%, 100%);
-      border: 2px solid hwb(199 2% 20%);
-    }
+select,
+input[type="text"] {
+  /* width: 20%; */
+  padding: 12px 20px;
+  margin: 8px 0;
+  background-color: #121212;
+  color: hsl(54, 98%, 51%);
+  border: 2px solid hwb(199 2% 20%);
+}
 
-    #selectedItems {
-      border: 2px solid #1776b6;
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-      border-radius: 4px;
-      padding: 16px;
-      width: 50%;
-      text-align: center;
-      background-color: #121212;
-    }
+#selectedItems {
+  border: 2px solid #135283;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  border-radius: 4px;
+  padding: 16px;
+  width: 50%;
+  text-align: center;
+  background-color: rgba(2, 10, 19, 0.85);
+  /*background-image: url('./assets/hunters/HoloDisplay.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;*/
+}
 
-    img {
-      max-width: 200px;
-      /* border: 2px solid #1462d6; */
-      border-radius: 4px;
-      padding: 16px;
-    }
+img {
+  max-width: 600px;
+  /* border: 2px solid #1462d6; */
+  border-radius: 4px;
+  padding: 16px;
+}
 
-    .container {
-      display: flex;
-      /* justify-content: center; */
-      flex-direction: column;
+#statsContainer {
+  
+  background-color: rgba(0, 0, 0, 0.5); 
+  padding: 5px; 
+  border-radius: 5px; /* for rounded corners */
+  max-width: 120px;
+  max-height: 80px;
+}
 
-      /* width: 100%; */
-      /* border: 2px solid red; */
-      /* justify-content: center; */
-      /* align-items: center; */
-    }
+.status-effects ul {
+  list-style-type: none;
+  padding: 0;
+}
 
-    .main-content {
-      display: flex;
-      /* flex-wrap: wrap; */
-      /* width: 45%; */
-      /* border: 2px solid orange; */
-    }
+.status-effects li {
+  padding: 2px;
+  font-size: 24px;
+  text-align: center;
+  text-shadow: 2px 2px 2px #000;
+}
 
-    .hunters-con {
-      display: flex;
-      flex-direction: column;
-      /* flex-shrink: 5; */
-      /* align-items: center; */
-      /* border: 5px dotted hotpink; */
-      width: 29%;
-    }
+#inventory h3 {
+  font-size: 26px;
+  background-image: url('./assets/hunters/HologramHeaderv2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  }
+.container {
+  display: flex;
+  flex-direction: column;
+  /*justify-content: center; /* Centers horizontally 
+  align-items: center; /* Centers vertically 
+  height: 100vh;
+  /* border: 2px solid red; */
+  /* justify-content: center; */
+  /* align-items: center; */
+}
 
-    #btn-remove {
-        display: flex;
-        padding: .2rem .5rem .2rem .5rem;
-        font-size: .8rem;
-        /* border: 3px solid red; */
-        /* width: 40%;
-        height: 40%; */
-    }
-    /* 
-    #inventory {
+.main-content {
+  display: flex;
+  /* flex-wrap: wrap; */
+  /* width: 45%; */
+  /* border: 2px solid orange; */
+}
 
-      border-left: 2px solid #1776b6;
-      width: 50%;
-      float: right;
-    } */
-    .item-info-con {
-      display: flex;
-      flex-shrink: 5;
-      border: 3px dotted green;
+.hunters-con {
+  display: flex;
+  flex-direction: column;
+  /* flex-shrink: 5; */
+  /* align-items: center; */
+  /* border: 5px dotted hotpink; */
+  width: 29%;
+}
 
-      /* width: 80%; */
-    }
+#btn-remove {
+  display: flex;
+  padding: .2rem .5rem .2rem .5rem;
+  font-size: .8rem;
+  /* border: 3px solid red; */
+  /* width: 40%;
+  height: 40%; */
+}
+ 
 
-    .inventory-con {
-      border-left: 2px solid #1776b6;
-      margin-top: 7.8px;
-      width: 70%;
-      /* float: right; */
-    }
+
+.item-info-con {
+  display: flex;
+  flex-shrink: 5;
+  border: 3px dotted green;
+
+  /* width: 80%; */
+}
+
+.inventory-item {
+  font-size: 28px;
+  color: #c1f1f5;
+  text-shadow: 2px 2px 2px rgb(0, 0, 0);
+
+}
+
+.inventory-con {
+  border-left: 2px solid #1776b6;
+  margin-top: 7.8px;
+  width: 70%;
+  /* float: right; */
+}
+
+
+
+/* Multiple Columns for Enemy List */
+#enemiesList {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 10px; /* Space between items */
+  justify-content: center; /* Center items horizontally */
+  max-width: 100%;
+  margin: 0 auto; /* Center the container */
+}
+
+.image-and-info-container {
+  display: flex;
+  flex-direction: column; /* Stack image and info vertically */
+  align-items: center; /* Center items horizontally */
+}
+.enemy-info-con {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  font-size: 22px;
+}
+
+.enemy-div {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  flex-basis: calc(15% - 10px); 
+  width: 1900px;
+  height: auto; 
+  box-sizing: border-box;
+  border-right: 2px solid #00ccff; /* Blue vertical line */
+  padding: 10px; /* Padding inside each div */
+  margin-right: 10px; /* Space between enemy divs */
+  background-size: 600% !important;
+  background-position:  -20% top !important;
+  position: relative;
+  overflow: hidden; 
+}
+
+.enemy-div::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.89); /* Adjust opacity here, e.g., 0.5 for 50% opacity*/
+  z-index: 1; /* Ensure it's above the background image but below the content*/
+}
+
+.enemy-div > * {
+  position: relative;
+  z-index: 2;
+}
+
+/*.enemy-div img {
+  /*max-width: 100%; /* Allows the image to fill the div */
+  /*height: auto; /* Maintains aspect ratio of the image */
+
+
+.enemy-div:last-child {
+  border-right: none; /* Remove border from the last div */
+}
+
+.enemy-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally in the column */
+  color: rgb(248, 241, 231);
+}
+
+#enemyImage {
+  /* Styles for the image, ensure it doesn't stretch or skew */
+  max-width: 700px; 
+  margin-bottom: 20px; /* Adds some space between the image and the dropdown */
+}
+
+#addEnemy, #enemyNameSelector {
+  margin-bottom: 16px; /* Adds space below each element */
+}
+
+.enemy-info-con button {
+  background-color: #d69200; 
+  color: white; 
+  border: 1px solid rgb(0, 0, 0); 
+  
+}
+
+.enemy-info-con button:hover {
+  background-color: rgb(247, 203, 141); /* on hover */
+}
+
+
+
+
+.shields-container {
+  display: flex;
+  flex-direction: row; /* Align children horizontally */
+  flex-wrap: wrap; /* Allow wrapping to the next line*/
+  gap: 50px; /* Space between shield containers */
+  justify-content: center; /* Center containers horizontally */
+}
+
+.shield-container {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center elements horizontally */
+  width: 60px; 
+  margin-bottom: 10px; /* Space between rows of shield containers */
+}
+
+.shield-image {
+  max-width: 100px; 
+  height: auto;
+  margin-bottom: 5px; /* Space between image and button */
+}
+
+
+button.highlight {
+  background-color: #ffc400; 
+  color: black; /* Change text color if needed */
+}
+
+#toggleView {
+  height: 100vh; 
+  width: 60px; 
+  position: fixed; 
+
+  top: 0; /* Align to the top */
+  display: flex;
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
+  flex-direction: column; /* Stack items vertically */
+  background-image: url('./assets/enemies/Backs-FanFavorite.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+  border: none;
+  outline: none;
+  text-align: center; /* Center the text */
+  padding: 0; /* Adjust padding if necessary */
+}
+
+#toggleView:hover {
+  opacity: 1; /* Fully opaque on hover */
+}
   </style>
 </head>
 
 <body>
+
+  <button id="clear">Clear Local Storage</button>
+  <!--<button id="console">console.log</button> -->
+
+
   <div class="container"> <!-- This is the new flex container -->
 
 
@@ -180,23 +369,23 @@
         <br>
         <button id="increaseScenario">Increase Scenario</button>
         <button id="decreaseScenario">Decrease Scenario</button>
-        
 
-        
-          <select id="itemTypeSelector">
-            <option value="weapons">Equipped Weapon</option>
-            <option value="shields">Shield Mod</option>
-            <option value="grenades">Grenade Mod</option>
-            <option value="characters">Character Mod</option>
-            <option value="backpacks">Backpack</option>
-          </select>
-          <input type="text" id="itemName" placeholder="Item Name">
-          <button id="addItem">Add Item</button>
-        
+
+
+        <select id="itemTypeSelector">
+          <option value="weapons">Equipped Weapon</option>
+          <option value="shields">Shield Mod</option>
+          <option value="grenades">Grenade Mod</option>
+          <option value="characters">Character Mod</option>
+          <option value="backpacks">Backpack</option>
+        </select>
+        <input type="text" id="itemName" placeholder="Item Name">
+        <button id="addItem">Add Item</button>
+
 
       </div>
-        
-        
+
+
       <div class="inventory-con" id="inventory">
         <!-- Inventory goes here -->
         <div id="selectedItems">
@@ -206,20 +395,37 @@
             <p class="item-list">Weapon 2</p>
           </div>
 
-          <h3>Shields</h3>
+          <h3>Equipped Shields</h3>
           <div id="shields"></div>
 
-          <h3>Grenades</h3>
+          <h3>Equipped Grenades</h3>
           <div id="grenades"></div>
-          
-          <h3>Character Mods</h3>
+
+          <h3>Equipped Character Mods</h3>
           <div id="characters"></div>
-          
+
           <h3>Backpack</h3>
           <div id="backpacks"></div>
         </div>
       </div>
-      
+      <button id="toggleView">Toggle Enemy View</button>
+
+      <div class="enemy-info-con" id="enemyInfo" style="display: none;">
+        <div class="image-and-info-container">
+          <div class="enemy-image-container">
+            <img id="enemyImage" src="" style="max-width: 200px;">
+          </div>
+          <div class="enemy-details-container">
+            <select id="enemyNameSelector">
+              <!-- Options for enemy names go here -->
+            </select>
+            <input type="color" id="enemyColor" placeholder="Color">
+            <button id="addEnemy" class="enemy-button">Add Enemy</button>
+            <div id="enemiesList"></div>
+          </div>
+        </div>
+      </div>
+
     </div> <!-- End of main-content -->
 
     <!-- <div class="inventory-con">
@@ -254,190 +460,1205 @@
 
   </div><!-- End of container -->
 
+
+</body>
+
   <script>
 
-    const availableVaultHunters = [
-      { name: 'Amara', image: 'https://cdn.discordapp.com/attachments/1138311293720330240/1155041276215971841/AmaraImage.jpg' },
-      {name: 'Athena', image: 'https://cdn.discordapp.com/attachments/1138311293720330240/1155050075567960155/AthenaImage.jpg' },
-      {name: 'Aurelia', image: 'https://cdn.discordapp.com/attachments/1138311293720330240/1155050089597894707/AureliaImage.jpg' },
-      {name: 'Axton', image: 'https://cdn.discordapp.com/attachments/1138311293720330240/1155050102877065236/AxtonImage.jpg' },
-      {name: 'Brick', image: 'https://cdn.discordapp.com/attachments/1138311293720330240/1155050120484749312/brickImage.jpg' },
-      {name: 'cl4ptp', image: 'https://cdn.discordapp.com/attachments/1138311293720330240/1155050136913838112/cl4ptpImage.jpg' },
-      {name: 'fl4k', image: 'https://cdn.discordapp.com/attachments/1138311293720330240/1155050155414925354/fl4kImage.jpg' },
-      {name: 'Gaige', image: 'https://cdn.discordapp.com/attachments/1138311293720330240/1155050174419304559/gaigeImage.jpg' },
-      {name: 'Krieg', image: 'https://cdn.discordapp.com/attachments/1138311293720330240/1155050193742467092/kriegImage.jpg' },
-      {name: 'Lilith', image: 'https://cdn.discordapp.com/attachments/1138311293720330240/1155050213615087616/lilithImage.jpg' },
-      {name: 'Maya', image: 'https://cdn.discordapp.com/attachments/1138311293720330240/1155050240932585472/mayaImage.jpg' },
-      {name: 'Mordecai', image: 'https://cdn.discordapp.com/attachments/1138311293720330240/1155050258104074270/mordecaiImage.jpg' },
-      {name: 'Moze', image: 'https://cdn.discordapp.com/attachments/1138311293720330240/1155050274638020659/mozeImage.jpg' },
-      {name: 'MrTorgue', image: 'https://cdn.discordapp.com/attachments/1138311293720330240/1155050291935314020/mrtorgueImage.jpg' },
-      {name: 'Nisha', image: 'https://cdn.discordapp.com/attachments/1138311293720330240/1155050310801293403/nishaImage.jpg' },
-      {name: 'Roland', image: 'https://cdn.discordapp.com/attachments/1138311293720330240/1155050325359730688/rolandImage.jpg' },
-      {name: 'Salvador', image: 'https://cdn.discordapp.com/attachments/1138311293720330240/1155050346369003610/salvadorImage.jpg' },
-      {name: 'Timothy Lawrence', image: 'https://cdn.discordapp.com/attachments/1138311293720330240/1155050368565252108/timothylawrenceImage.jpg' },
-      {name: 'Tiny Tina', image: 'https://cdn.discordapp.com/attachments/1138311293720330240/1155050395895337010/tinytinaImage.jpg' },
-      {name: 'Wilhelm', image: 'https://cdn.discordapp.com/attachments/1138311293720330240/1155050417022050364/wilhelmImage.jpg' },
-      {name: 'Zane', image: 'https://cdn.discordapp.com/attachments/1138311293720330240/1155041303999025252/ZaneImage.jpg' },
-      {name: 'Zero', image: 'https://cdn.discordapp.com/attachments/1138311293720330240/1155050458440810566/ZeroImage.jpg' },
-    ];
+    export const availableEnemies = {
+    "Normal": [
+        {
+            name: "Psycho",
+            image: "./assets/enemies/Psycho.jpg",
+            health: 1,
+            shields: [],
+        },
+        {
+            name: "Marauder",
+            image: "./assets/enemies/Marauder.jpg",
+            health: 1,
+            shields: [],
+        },
 
-    let vaultHunters = [
-      { items: [], selectedImage: 0, level: 0, scenario: 0 },
-      { items: [], selectedImage: 0, level: 0, scenario: 0 },
-      { items: [], selectedImage: 0, level: 0, scenario: 0 },
-      { items: [], selectedImage: 0, level: 0, scenario: 0 }
-    ];
+        {
+            name: "Goliath",
+            image: "./assets/enemies/Goliath.jpg",
+            health: 6,
+            shields: [],
+        },
 
-    // Load saved data if it exists
-    const storedData = localStorage.getItem('vaultHunters');
-    if (storedData !== null) {
-      try {
-        const parsedData = JSON.parse(storedData);
-        if (Array.isArray(parsedData)) {
+        // Other normal enemies...
+    ],
+    "Badass": [
+        {
+            name: "Badass Skag",
+            image: "./assets/enemies/BadassSkag.jpg",
+            health: 2,
+            shields: [],
+        },
 
-          // Add the new check here
-          parsedData.forEach((hunter, index) => {
-            if (typeof hunter.level !== 'number') {
-              parsedData[index].level = 0;
-            }
-            if (typeof hunter.scenario !== 'number') {
-              parsedData[index].scenario = 0;
-            }
-          });
+        {
+            name: "Badass Alpha Skag",
+            image: "./assets/enemies/BadassAlphaSkag.jpg",
+            health: 5,
+            shields: [],
+        },
+        {
+            name: "Badass Alpha Corrosive Skag",
+            image: "./assets/enemies/BadassAlphaCorrosiveSkag.jpg",
+            health: 5,
+            shields: [],
+        },
 
-          // Then proceed with the assignment
-          vaultHunters = parsedData;
+        {
+            name: "Badass Alpha Fire Skag",
+            image: "./assets/enemies/BadassAlphaFireSkag.jpg",
+            health: 5,
+            shields: [],
+        },
 
-        } else {
-          console.error("Parsed vaultHunters is not an array");
-        }
-      } catch (e) {
-        console.error("Error parsing vaultHunters from localStorage: ", e);
-      }
+        {
+            name: "Badass Alpha Shock Skag",
+            image: "./assets/enemies/BadassAlphaShockSkag.jpg",
+            health: 5,
+            shields: [],
+        },
+
+        {
+            name: "Badass Goliath",
+            image: "./assets/enemies/BadassGoliath.jpg",
+            health: 6,
+            shields: [],
+        },
+
+        {
+            name: "Raging Goliath",
+            image: "./assets/enemies/RagingGoliath.jpg",
+            health: 6,
+            shields: [],
+        },
+
+        {
+            name: "Raging Badass Goliath",
+            image: "./assets/enemies/RagingBadassGoliath.jpg",
+            health: 7,
+            shields: [],
+        },
+
+        {
+            name: "Badass Psycho",
+            image: "./assets/enemies/BadassPsycho.jpg",
+            health: 4,
+            shields: [],
+        },
+
+        {
+            name: "Badass Shotgun Tink",
+            image: "./assets/enemies/BadassShotgunTink.jpg",
+            health: 4,
+            shields: [],
+        },
+
+        {
+            name: "Super Badass Maniac",
+            image: "./assets/enemies/SuperBadassManiac.jpg",
+            health: 6,
+            shields: [],
+        },
+        // Badass enemies...
+    ],
+
+
+    "Unique": [
+        {
+            name: "Assassin Reeth",
+            image: "./assets/enemies/AssassinReeth.jpg",
+            health: 7,
+            shields: [],
+        },
+
+        {
+            name: "Assassin WOT",
+            image: "./assets/enemies/AsssassinWot.jpg",
+            health: 7,
+            shields: [],
+        },
+
+        {
+            name: "Blackheart Bishop",
+            image: "./assets/enemies/BlackheartBishop.jpg",
+            health: 8,
+            shields: ["yellow"],
+        },
+
+        {
+            name: "Blackheart King",
+            image: "./assets/enemies/BlackheartKing.jpg",
+            health: 7,
+            shields: ["green"],
+        },
+
+        {
+            name: "Blackheart Knight",
+            image: "./assets/enemies/BlackheartKnight.jpg",
+            health: 7,
+            shields: ["yellow"],
+        },
+
+        {
+            name: "Blackheart Pawn",
+            image: "./assets/enemies/BlackheartPawn.jpg",
+            health: 6,
+            shields: ["green"],
+        },
+
+        {
+            name: "Bone Head",
+            image: "./assets/enemies/BoneHead.jpg",
+            health: 8,
+            shields: ["yellow"],
+        },
+
+        {
+            name: "Buff Gamer",
+            image: "./assets/enemies/BuffGamer.jpg",
+            health: 6,
+            shields: ["yellow"],
+        },
+
+        {
+            name: "Eadric Edelhard",
+            image: "./assets/enemies/EadricEdelhard.jpg",
+            health: 8,
+            shields: [],
+        },
+
+        {
+            name: "Game Critic",
+            image: "./assets/enemies/GameCritic.jpg",
+            health: 8,
+            shields: ["yellow"],
+        },
+
+        {
+            name: "Mad Dog",
+            image: "./assets/enemies/MadDog.jpg",
+            health: 8,
+            shields: [],
+        },
+
+        {
+            name: "Maniac",
+            image: "./assets/enemies/Maniac.jpg",
+            health: 2,
+            shields: [],
+        },
+
+        {
+            name: "Maniac Bomber",
+            image: "./assets/enemies/ManiacBomber.jpg",
+            health: 1,
+            shields: [],
+        },
+
+        {
+            name: "Nine Toes",
+            image: "./assets/enemies/NineToes.jpg",
+            health: 6,
+            shields: ["red"],
+        },
+
+        {
+            name: "Raging Smash-Head",
+            image: "./assets/enemies/RagingSmash-Head.jpg",
+            health: 8,
+            shields: [],
+        },
+
+        {
+            name: "Smash-Head",
+            image: "./assets/enemies/Smash-Head.jpg",
+            health: 8,
+            shields: ["yellow"],
+        },
+
+        {
+            name: "Raging Warden",
+            image: "./assets/enemies/RagingWarden.jpg",
+            health: 9,
+            shields: [],
+        },
+
+        {
+            name: "Roid Rage Psycho",
+            image: "./assets/enemies/RoidRagePsycho.jpg",
+            health: 8,
+            shields: [],
+        },
+
+        {
+            name: "Savage Lee",
+            image: "./assets/enemies/SavageLee.jpg",
+            health: 8,
+            shields: [],
+        },
+
+        {
+            name: "Suicide Psycho",
+            image: "./assets/enemies/SuicidePsycho.jpg",
+            health: 1,
+            shields: [],
+        },
+
+        {
+            name: "Warden",
+            image: "./assets/enemies/Warden.jpg",
+            health: 8,
+            shields: ["green"],
+        },
+
+
+        // Unique enemies...
+    ],
+    "Skags": [
+        {
+            name: "Adult Skag",
+            image: "./assets/enemies/AdultSkag.jpg",
+            health: 1,
+            shields: [],
+        },
+
+        {
+            name: "Barfer Skag",
+            image: "./assets/enemies/BarferSkag.jpg",
+            health: 8,
+            shields: [],
+        },
+
+        {
+            name: "Digit",
+            image: "./assets/enemies/Digit.jpg",
+            health: 6,
+            shields: [],
+        },
+
+        {
+            name: "Dribbles",
+            image: "./assets/enemies/Dribbles.jpg",
+            health: 8,
+            shields: [],
+        },
+
+        {
+            name: "Dukino's Mom",
+            image: "./assets/enemies/DukinosMom.jpg",
+            health: 8,
+            shields: [],
+        },
+
+        {
+            name: "Enrique",
+            image: "./assets/enemies/Enrique.jpg",
+            health: 8,
+            shields: [],
+        },
+
+        {
+            name: "Ghost",
+            image: "./assets/enemies/Ghost.jpg",
+            health: 8,
+            shields: [],
+        },
+        {
+            name: "Infected Skag",
+            image: "./assets/enemies/InfectedSkag.jpg",
+            health: 5,
+            shields: [],
+        },
+
+        {
+            name: "Lil'Skag",
+            image: "./assets/enemies/LilSkag.jpg",
+            health: 1,
+            shields: [],
+        },
+
+        {
+            name: "Loggie Skag",
+            image: "./assets/enemies/LoggieSkag.jpg",
+            health: 3,
+            shields: [],
+        },
+        {
+            name: "Marley",
+            image: "./assets/enemies/Marley.jpg",
+            health: 8,
+            shields: [],
+        },
+
+        {
+            name: "Moe",
+            image: "./assets/enemies/Moe.jpg",
+            health: 8,
+            shields: [],
+        },
+
+        {
+            name: "Pinky",
+            image: "./assets/enemies/Pinky.jpg",
+            health: 6,
+            shields: [],
+        },
+
+        {
+            name: "Rabid Skag",
+            image: "./assets/enemies/RabidSkag.jpg",
+            health: 7,
+            shields: [],
+        },
+
+        {
+            name: "Chubby Skag",
+            image: "./assets/enemies/ShubbySkag.jpg",
+            health: 4,
+            shields: [],
+        },
+
+        {
+            name: "Skag Pup",
+            image: "./assets/enemies/SkagPup.jpg",
+            health: 1,
+            shields: [],
+        },
+        // Skag enemies...
+    ],
+    "Special": [
+        {
+            name: "Psychoreaver",
+            image: "./assets/enemies/Psychoreaver.jpg",
+            health: 20,
+            shields: ["green", "green"],
+        },
+        // Boss enemies...
+    ],
+};
+
+export const availableVaultHunters = [
+  {
+    name: "Amara",
+    image: 
+      "https://cdn.discordapp.com/attachments/1138311293720330240/1155041276215971841/AmaraImage.jpg",
+    // image: "./assets/hunters/AmaraImage.jpg",
+  },
+  {
+    name: "Athena",
+    image:
+      "https://cdn.discordapp.com/attachments/1138311293720330240/1155050075567960155/AthenaImage.jpg",
+  },
+  {
+    name: "Aurelia",
+    image:
+      "https://cdn.discordapp.com/attachments/1138311293720330240/1155050089597894707/AureliaImage.jpg",
+  },
+  {
+    name: "Axton",
+    image:
+      "https://cdn.discordapp.com/attachments/1138311293720330240/1155050102877065236/AxtonImage.jpg",
+  },
+  {
+    name: "Brick",
+    image:
+      "https://cdn.discordapp.com/attachments/1138311293720330240/1155050120484749312/brickImage.jpg",
+  },
+  {
+    name: "cl4ptp",
+    image:
+      "https://cdn.discordapp.com/attachments/1138311293720330240/1155050136913838112/cl4ptpImage.jpg",
+  },
+  {
+    name: "fl4k",
+    image:
+      "https://cdn.discordapp.com/attachments/1138311293720330240/1155050155414925354/fl4kImage.jpg",
+  },
+  {
+    name: "Gaige",
+    image:
+      "https://cdn.discordapp.com/attachments/1138311293720330240/1155050174419304559/gaigeImage.jpg",
+  },
+  {
+    name: "Krieg",
+    image:
+      "https://cdn.discordapp.com/attachments/1138311293720330240/1155050193742467092/kriegImage.jpg",
+  },
+  {
+    name: "Lilith",
+    image:
+      "https://cdn.discordapp.com/attachments/1138311293720330240/1155050213615087616/lilithImage.jpg",
+  },
+  {
+    name: "Maya",
+    image:
+      "https://cdn.discordapp.com/attachments/1138311293720330240/1155050240932585472/mayaImage.jpg",
+  },
+  {
+    name: "Mordecai",
+    image:
+      "https://cdn.discordapp.com/attachments/1138311293720330240/1155050258104074270/mordecaiImage.jpg",
+  },
+  {
+    name: "Moze",
+    image:
+      "https://cdn.discordapp.com/attachments/1138311293720330240/1155050274638020659/mozeImage.jpg",
+  },
+  {
+    name: "MrTorgue",
+    image:
+      "https://cdn.discordapp.com/attachments/1138311293720330240/1155050291935314020/mrtorgueImage.jpg",
+  },
+  {
+    name: "Nisha",
+    image:
+      "https://cdn.discordapp.com/attachments/1138311293720330240/1155050310801293403/nishaImage.jpg",
+  },
+  {
+    name: "Roland",
+    image:
+      "https://cdn.discordapp.com/attachments/1138311293720330240/1155050325359730688/rolandImage.jpg",
+  },
+  {
+    name: "Salvador",
+    image:
+      "https://cdn.discordapp.com/attachments/1138311293720330240/1155050346369003610/salvadorImage.jpg",
+  },
+  {
+    name: "Timothy Lawrence",
+    image:
+      "https://cdn.discordapp.com/attachments/1138311293720330240/1155050368565252108/timothylawrenceImage.jpg",
+  },
+  {
+    name: "Tiny Tina",
+    image:
+      "https://cdn.discordapp.com/attachments/1138311293720330240/1155050395895337010/tinytinaImage.jpg",
+  },
+  {
+    name: "Wilhelm",
+    image:
+      "https://cdn.discordapp.com/attachments/1138311293720330240/1155050417022050364/wilhelmImage.jpg",
+  },
+  {
+    name: "Zane",
+    image:
+      "https://cdn.discordapp.com/attachments/1138311293720330240/1155041303999025252/ZaneImage.jpg",
+  },
+  {
+    name: "Zero",
+    image:
+      "https://cdn.discordapp.com/attachments/1138311293720330240/1155050458440810566/ZeroImage.jpg",
+  },
+];
+import { availableVaultHunters } from "./hunterObjs.js";
+import { availableEnemies } from "./enemiesObj.js";
+/**================================================================================================**/
+let clearStorage = document.getElementById("clear");
+clearStorage.addEventListener("click", () => {
+  localStorage.clear();
+  location.reload();
+});
+
+//let consoleBtn = document.getElementById("console");
+//consoleBtn.addEventListener("click", () => {
+//  console.log("whatever");
+//});
+/**================================================================================================**/
+
+function initUI() {
+  currentVaultHunterIndex = 0; // Default to the first Vault Hunter
+  imageSelector.value = vaultHunters[currentVaultHunterIndex].selectedImage;
+  displayedImage.src = availableVaultHunters[vaultHunters[currentVaultHunterIndex].selectedImage].image;
+  updateUI();
+  highlightVaultHunterButton(currentVaultHunterIndex); // Highlight the button of the current Vault Hunter
+
+  const toggleButton = document.getElementById("toggleView");
+  toggleButton.style.right = '0'; // Align to the right initially
+  toggleButton.style.left = 'auto'; // Remove left alignment
+}
+
+function highlightVaultHunterButton(index) {
+  vaultHunterButtons.forEach(btn => btn.classList.remove('highlight'));
+  document.getElementById(`vault${index + 1}`).classList.add('highlight');
+}
+
+
+// Event listeners for Vault Hunter buttons
+const vaultHunterButtons = document.querySelectorAll('.vault-btns-con button');
+
+vaultHunterButtons.forEach(button => {
+  button.addEventListener('click', function () {
+    const index = parseInt(this.id.replace('vault', '')) - 1;
+    currentVaultHunterIndex = index;
+    updateUI();
+    highlightVaultHunterButton(index);
+  });
+});
+
+// Global level and scenario, shared by all Vault Hunters
+let sharedLevel = 0;
+let sharedScenario = 0;
+
+let vaultHunters = [
+  { items: [], selectedImage: 0 },
+  { items: [], selectedImage: 0 },
+  { items: [], selectedImage: 0 },
+  { items: [], selectedImage: 0 },
+];
+
+let enemies = [];
+
+let onEnemiesSection = false;
+
+
+
+// Load saved data if it exists
+const storedState = localStorage.getItem('vaultHuntersState');
+
+if (storedState) {
+  const state = JSON.parse(storedState);
+  vaultHunters = state.vaultHunters;
+  sharedLevel = state.sharedLevel || 0;
+  sharedScenario = state.sharedScenario || 0; //Fallback to 0 if unedifened
+  enemies = state.enemies || [];
+}
+// };
+// const storedData = localStorage.getItem('vaultHuntersState');
+// if (storedData !== null) {
+//   try {
+//     const parsedData = JSON.parse(storedData);
+//     if (Array.isArray(parsedData)) {
+
+//       // Add the new check here
+//       parsedData.forEach((hunter, index) => {
+//         if (typeof hunter.level !== 'number') {
+//           parsedData[index].level = 0;
+//         }
+//         if (typeof hunter.scenario !== 'number') {
+//           parsedData[index].scenario = 0;
+//         }
+//       });
+
+//       // Then proceed with the assignment
+//       vaultHunters = parsedData;
+
+//     } else {
+//       console.error("Parsed 'vaultHuntersState' is not an array");
+//     }
+//   } catch (e) {
+//     console.error("Error parsing 'vaultHuntersState' from localStorage: ", e);
+//   }
+// }
+
+// Function to save the current state
+function saveState() {
+  const state = {
+    vaultHunters,
+    sharedLevel,
+    sharedScenario,
+    enemies
+  };
+  localStorage.setItem('vaultHuntersState', JSON.stringify(state));
+};
+
+let currentVaultHunterIndex = 0;
+let showVaultHunter = true;
+
+
+const imageSelector = document.getElementById('imageSelector');
+const displayedImage = document.getElementById('displayedImage');
+const itemTypeSelector = document.getElementById('itemTypeSelector');
+const itemNameInput = document.getElementById('itemName');
+const addItemButton = document.getElementById('addItem');
+
+addItemButton.addEventListener('click', function () {
+  const itemType = itemTypeSelector.value;
+  const itemName = itemNameInput.value;
+
+  vaultHunters[currentVaultHunterIndex].items.push({ type: itemType, name: itemName });
+  updateUI();
+  saveState();
+});
+
+availableVaultHunters.forEach((hunter, index) => {
+  const option = document.createElement('option');
+  option.value = index;
+  option.textContent = hunter.name;
+  imageSelector.appendChild(option);
+});
+
+for (let i = 1; i <= 4; i++) {
+  document.getElementById(`vault${i}`).addEventListener('click', function () {
+    currentVaultHunterIndex = i - 1;
+    updateUI();
+  });
+}
+
+imageSelector.addEventListener('change', function () {
+  vaultHunters[currentVaultHunterIndex].selectedImage = this.value;
+  updateUI();
+  saveState();
+});
+
+function updateUI() {
+  const currentVaultHunter = vaultHunters[currentVaultHunterIndex];
+  const allowedIds = ["shields", "grenades", "characters", "backpacks", "weapons"];
+  document.getElementById("level").innerText = sharedLevel;
+  document.getElementById("scenario").innerText = sharedScenario;
+
+
+  // Clear existing items
+  allowedIds.forEach(id => {
+    const elem = document.getElementById(id);
+    if (elem) {
+      elem.innerHTML = '';
     }
+  });
 
-    // Function to save the current state
-    const saveState = () => {
-      localStorage.setItem('vaultHunters', JSON.stringify(vaultHunters));
-    }
+  // Add new items
+  currentVaultHunter.items.forEach((item, index) => {
+    if (allowedIds.includes(item.type)) {
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'inventory-item';
+      itemDiv.textContent = item.name;
 
-    let currentVaultHunterIndex = 0;
-
-    const imageSelector = document.getElementById('imageSelector');
-    const displayedImage = document.getElementById('displayedImage');
-    const itemTypeSelector = document.getElementById('itemTypeSelector');
-    const itemNameInput = document.getElementById('itemName');
-    const addItemButton = document.getElementById('addItem');
-
-    addItemButton.addEventListener('click', function () {
-      const itemType = itemTypeSelector.value;
-      const itemName = itemNameInput.value;
-
-      vaultHunters[currentVaultHunterIndex].items.push({ type: itemType, name: itemName });
-      updateUI();
-      saveState();
-    });
-
-    availableVaultHunters.forEach((hunter, index) => {
-      const option = document.createElement('option');
-      option.value = index;
-      option.textContent = hunter.name;
-      imageSelector.appendChild(option);
-    });
-
-    for (let i = 1; i <= 4; i++) {
-      document.getElementById(`vault${i}`).addEventListener('click', function () {
-        currentVaultHunterIndex = i - 1;
+      const removeButton = document.createElement('button');
+      removeButton.id = 'btn-remove';
+      removeButton.textContent = 'Remove';
+      removeButton.addEventListener('click', () => {
+        currentVaultHunter.items.splice(index, 1);
         updateUI();
+        saveState();
       });
+
+      itemDiv.appendChild(removeButton);
+      document.getElementById(item.type).appendChild(itemDiv);
+    } else {
+      console.error(`Invalid item type: ${item.type}`);
     }
+  });
 
-    imageSelector.addEventListener('change', function () {
-      vaultHunters[currentVaultHunterIndex].selectedImage = this.value;
-      updateUI();
-      saveState();
-    });
+  displayedImage.src = availableVaultHunters[currentVaultHunter.selectedImage].image;
+  imageSelector.value = currentVaultHunter.selectedImage;
+};
 
-    const updateUI = () => {
-      const currentVaultHunter = vaultHunters[currentVaultHunterIndex];
-      const allowedIds = ["shields", "grenades", "characters", "backpacks", "weapons"];
+document.getElementById("increaseLevel").addEventListener('click', function () {
+  sharedLevel += 1;
+  updateUI();
+  saveState();
+});
 
-      // Clear existing items
-      allowedIds.forEach(id => {
-        const elem = document.getElementById(id);
-        if (elem) {
-          elem.innerHTML = '';
-        }
+document.getElementById("increaseScenario").addEventListener('click', function () {
+  sharedScenario++;
+  updateUI();
+  saveState();
+});
+// Function to decrease level
+document.getElementById("decreaseLevel").addEventListener('click', function () {
+  if (sharedLevel > 0) {
+    sharedLevel -= 1;
+    updateUI();
+    saveState();
+  }
+});
+
+// Function to decrease scenario
+document.getElementById("decreaseScenario").addEventListener('click', function () {
+  if (sharedScenario > 0) {
+    sharedScenario -= 1;
+    updateUI();
+    saveState();
+  }
+});
+
+/**================================================================================================
+ * !                                          Enemy Section
+ *   
+ *   
+ *   
+ *
+ *================================================================================================**/
+
+// Add enemy event listener
+document.getElementById("addEnemy").addEventListener('click', function () {
+  const enemyName = document.getElementById("enemyNameSelector").value;
+  const enemyColor = document.getElementById("enemyColor").value;
+
+  addEnemy(enemyName, enemyColor);
+});
+
+document.getElementById("toggleView").addEventListener('click', function () {
+  showVaultHunter = !showVaultHunter;
+  toggleUI();
+});
+
+const enemyNameSelector = document.getElementById("enemyNameSelector");
+
+function loadEnemyImg(selected = enemyNameSelector.options[enemyNameSelector.selectedIndex].value) {
+  for (const category in availableEnemies) {
+    const found = availableEnemies[category].find(enemy => enemy.name === selected);
+
+    if (found) {
+      document.getElementById("enemyImage").src = found.image;
+      break;
+    }
+  }
+}
+
+enemyNameSelector.addEventListener('change', function () {
+  const selectedEnemyName = this.value;
+  loadEnemyImg(selectedEnemyName);
+});
+
+
+
+// is null because it `addShield` is not loaded when this code block is ran after `toggle` is pressed.
+// Possible solution: 
+//    put this in a function and place it the code block when the enemy UI is created. 
+// document.getElementById("addShield").addEventListener('click', function () {
+//   const selectedEnemyName = document.getElementById("enemyNameSelector").value;
+//   const shieldColor = document.getElementById("shieldColorSelector").value;
+//   addShieldToEnemy(selectedEnemyName, shieldColor);
+// });
+
+const statsContainer = document.getElementById('statsContainer'); // Get the stats container
+
+enemyNameSelector.addEventListener('change', function () {
+  const selectedEnemyName = this.value;
+  loadEnemyImg(selectedEnemyName);
+  
+  // Find the selected enemy
+  const selectedEnemy = enemies.find(enemy => enemy.name === selectedEnemyName);
+  if (selectedEnemy) {
+    // Set the background image of the stats container
+    statsContainer.style.backgroundImage = `url(${selectedEnemy.image})`;
+    statsContainer.style.backgroundSize = 'cover'; // Ensure it covers the entire div
+    statsContainer.style.backgroundPosition = 'center'; // Center the background image
+  }
+});
+function displayEnemy(enemy) {
+  const enemiesList = document.getElementById("enemiesList");
+
+  const enemyDiv = document.createElement('div');
+
+  enemyDiv.textContent = `${enemy.name} - Health: ${enemy.health}, Shield: ${enemy.shield}`;
+  enemyDiv.style.backgroundColor = enemy.color;
+
+  if (enemy.status) {
+    // Add a place to show status tokens if they exist
+    const statusSpan = document.createElement('span');
+    statusSpan.textContent = `Status: ${enemy.status}`;
+    enemyDiv.appendChild(statusSpan);
+  }
+
+  enemiesList.appendChild(enemyDiv);
+}
+
+function populateEnemyNames() {
+  const enemyNameSelector = document.getElementById('enemyNameSelector');
+  enemyNameSelector.innerHTML = ''; // Clear existing options
+
+  for (const category in availableEnemies) {
+    if (availableEnemies.hasOwnProperty(category)) {
+      const group = document.createElement('optgroup');
+      group.label = category;
+
+      availableEnemies[category].forEach(enemy => {
+        const option = document.createElement('option');
+        option.value = enemy.name;
+        option.textContent = enemy.name;
+        group.appendChild(option);
       });
 
-      // Add new items
-      currentVaultHunter.items.forEach((item, index) => {
-        if (allowedIds.includes(item.type)) {
-          const itemDiv = document.createElement('div');
-          itemDiv.textContent = item.name;
+      enemyNameSelector.appendChild(group);
+    }
+  }
+}
 
-          const removeButton = document.createElement('button');
-          removeButton.id = 'btn-remove';
-          removeButton.textContent = 'Remove';
-          removeButton.addEventListener('click', () => {
-            currentVaultHunter.items.splice(index, 1);
-            updateUI();
-            saveState();
-          });
+populateEnemyNames(); // Call to populate on script load
 
-          itemDiv.appendChild(removeButton);
-          document.getElementById(item.type).appendChild(itemDiv);
-        } else {
-          console.error(`Invalid item type: ${item.type}`);
-        }
-      });
+function addEnemy(name, color) {
+  let enemyDetails = null;
 
-      document.getElementById("level").innerText = currentVaultHunter.level;
-      document.getElementById("scenario").innerText = currentVaultHunter.scenario;
+  for (const category in availableEnemies) {
+    const found = availableEnemies[category].find(enemy => enemy.name === name);
+    if (found) {
+      enemyDetails = found;
+      break;
+    }
+  }
 
-      displayedImage.src = availableVaultHunters[currentVaultHunter.selectedImage].image;
-      imageSelector.value = currentVaultHunter.selectedImage;
+  if (enemyDetails) {
+    const newEnemy = {
+      name,
+      image: enemyDetails.image,
+      health: enemyDetails.health,
+      shields: [...enemyDetails.shields], // Copy the initial shields
+      status: '',
+      color,
     };
+    enemies.push(newEnemy);
+    updateEnemyUI();
+  } else {
+    console.error("Enemy details not found for:", name);
+  }
+  saveState();
+}
 
-    document.getElementById("increaseLevel").addEventListener('click', function () {
-      vaultHunters[currentVaultHunterIndex].level++;
-      updateUI();
-      saveState();
-    });
+//* Duplicate function
+// function createStatInput(value, changeHandler) {
+//   const input = document.createElement('input');
+//   input.type = 'number';
+//   input.value = value;
+//   input.addEventListener('change', changeHandler);
+//   return input;
+// }
 
-    document.getElementById("increaseScenario").addEventListener('click', function () {
-      vaultHunters[currentVaultHunterIndex].scenario++;
-      updateUI();
-      saveState();
-    });
-    // Function to decrease level
-    document.getElementById("decreaseLevel").addEventListener('click', function () {
-      if (vaultHunters[currentVaultHunterIndex].level > 0) {
-        vaultHunters[currentVaultHunterIndex].level -= 1;
-        updateUI();
-        saveState();
-      }
-    });
-
-    // Function to decrease scenario
-    document.getElementById("decreaseScenario").addEventListener('click', function () {
-      if (vaultHunters[currentVaultHunterIndex].scenario > 0) {
-        vaultHunters[currentVaultHunterIndex].scenario -= 1;
-        updateUI();
-        saveState();
-      }
-    });
-
-
-    const initUI = () => {
-      // Set initial value for imageSelector and displayedImage
-      imageSelector.value = vaultHunters[currentVaultHunterIndex].selectedImage;
-      displayedImage.src = availableVaultHunters[vaultHunters[currentVaultHunterIndex].selectedImage].image;
-      updateUI();
+function addStatusToken(index) {
+  const newStatus = prompt("Enter new status token:");
+  if (newStatus) {
+    if (enemies[index].status) {
+      enemies[index].status += `, ${newStatus}`;
+    } else {
+      enemies[index].status = newStatus;
     }
+    updateEnemyUI();
+  }
+}
 
-    // Initialize the UI with currentVaultHunterIndex = 0
-    initUI();
+function updateEnemyUI() {
+  saveState();
+  const enemiesList = document.getElementById("enemiesList");
+  enemiesList.innerHTML = ''; // Clear existing list
+
+  enemies.forEach((enemy, index) => {
+    const enemyDiv = document.createElement('div');
+  
+    enemyDiv.className = 'enemy-div'; // Ensure this line is here
+    enemyDiv.style.backgroundImage = `url(${enemy.image})`; // Set background image
+    enemyDiv.style.backgroundSize = 'cover'; // Ensure it covers the div
+    enemyDiv.style.backgroundPosition = 'center'; // Center the background image
+    enemyDiv.style.marginBottom = '10px'; // Add some space between enemy divs
+
+    // Create a colored box for the enemy
+    const colorBox = document.createElement('div');
+    colorBox.style.width = '60px'; // Set the width of the box
+    colorBox.style.height = '30px'; // Set the height of the box
+    colorBox.style.backgroundColor = enemy.color; // Set the background color
+    colorBox.style.border = '1px solid #000'; // Optional: add a border
+    colorBox.style.marginBottom = '10px'; // Space below the box
+
+    enemyDiv.appendChild(colorBox); // Append the color box to enemyDiv
+
+    // Add enemy image
+    const enemyImage = document.createElement('img');
+    enemyImage.src = enemy.image;
+    enemyImage.style.maxWidth = '200px';
+    enemyDiv.appendChild(enemyImage);
+
+     // Remove Enemy Button
+     const removeEnemyButton = document.createElement('button');
+     removeEnemyButton.textContent = 'Remove Enemy';
+     removeEnemyButton.onclick = () => {
+       enemies.splice(index, 1);
+       updateEnemyUI();
+     };
+     enemyDiv.appendChild(removeEnemyButton);
+
+    // Display Enemy Name
+    const enemyName = document.createElement('h4');
+    enemyName.textContent = enemy.name;
+    enemyDiv.appendChild(enemyName);
+
+    // Health Adjustment UI
+    const healthDiv = createAdjustmentDiv(enemy.health, (value) => {
+      enemy.health = Math.max(0, enemy.health + value); // Ensuring health doesn't go below 0
+      updateEnemyUI();
+    });
+    enemyDiv.appendChild(healthDiv);
+
+    // Shields Header
+    const shieldsHeader = document.createElement('h5');
+    shieldsHeader.textContent = "Shields:";
+    enemyDiv.appendChild(shieldsHeader);
+    
+
+    // Shields Display
+    const shieldsDiv = document.createElement('div');
+    shieldsDiv.className = 'shields-container'; // Apply the class
+
+    enemy.shields.forEach((shield, shieldIndex) => {
+      // Create a container for each shield
+      const shieldContainer = document.createElement('div');
+      shieldContainer.className = 'shield-container';
+
+      // Create an image element for the shield
+      const shieldImage = document.createElement('img');
+      // Set the source of the image based on the shield type
+      switch (shield) {
+        case 'green':
+          shieldImage.src = './assets/hunters/Tokens-SHIELDGREEN.png';
+          break;
+        case 'yellow':
+          shieldImage.src = './assets/hunters/Tokens-SHIELDYellow.png';
+          break;
+        case 'red':
+          shieldImage.src = './assets/hunters/Tokens-SHIELDRED.png';
+          break;
+        default:
+          shieldImage.src = './assets/hunters/Tokens-SHIELDGREEN.png';
+      }
+      
+      shieldImage.className = 'shield-image'; // Apply a class for styling
+  shieldContainer.appendChild(shieldImage); // Append image to the container
+
+  // Add a button to remove the shield
+  const removeShieldButton = document.createElement('button');
+  removeShieldButton.textContent = 'Remove';
+  removeShieldButton.onclick = () => {
+    enemy.shields.splice(shieldIndex, 1);
+    updateEnemyUI();
+  };
+  shieldContainer.appendChild(removeShieldButton); // Append button to the container
+
+  shieldsDiv.appendChild(shieldContainer); // Append container to the main div
+});
+    enemyDiv.appendChild(shieldsDiv);
+
+
+
+    // Add Shield Controls
+    const shieldColorSelector = document.createElement('select');
+    ['green', 'yellow', 'red'].forEach(color => {
+      const option = document.createElement('option');
+      option.value = color;
+      option.textContent = color;
+      shieldColorSelector.appendChild(option);
+    });
+
+    const addShieldButton = document.createElement('button');
+    addShieldButton.textContent = 'Add Shield';
+    addShieldButton.addEventListener('click', () => {
+      enemy.shields.push(shieldColorSelector.value);
+      updateEnemyUI();
+    });
+
+    enemyDiv.appendChild(shieldColorSelector);
+    enemyDiv.appendChild(addShieldButton);
+
+    // Debugging: Log the enemy's status effects
+    console.log(`Status for ${enemy.name}: ${enemy.status}`);
+
+    // Status Effects Header
+const statusHeader = document.createElement('h5');
+statusHeader.textContent = "Status Effects";
+enemyDiv.appendChild(statusHeader);
+
+// Create a div for status effects
+const statusEffectsDiv = document.createElement('div');
+statusEffectsDiv.className = 'status-effects';
+
+// Create an unordered list for the status effects
+const statusList = document.createElement('ul');
+
+// Split and trim status tokens
+const statusTokens = enemy.status.split(',').map(token => token.trim()).filter(token => token);
+
+// Add each status effect as a list item
+statusTokens.forEach((token, tokenIndex) => {
+  const statusItem = document.createElement('li');
+  statusItem.textContent = token;
+
+  const removeTokenButton = document.createElement('button');
+  removeTokenButton.textContent = 'Remove';
+  removeTokenButton.addEventListener('click', () => {
+    enemy.status = enemy.status.split(',').filter((_, idx) => idx !== tokenIndex).join(',');
+    updateEnemyUI();
+  });
+  statusItem.appendChild(removeTokenButton);
+
+  statusList.appendChild(statusItem);
+});
+
+statusEffectsDiv.appendChild(statusList);
+enemyDiv.appendChild(statusEffectsDiv);
+
+    /// Add New Status Token Dropdown and Button
+const statusEffectSelector = document.createElement('select');
+['Incendiary', 'Slag', 'Cryo', 'Shock', 'Radiation', 'Corrosive'].forEach(effect => {
+  const option = document.createElement('option');
+  option.value = effect;
+  option.textContent = effect;
+  statusEffectSelector.appendChild(option);
+});
+
+const addStatusButton = document.createElement('button');
+addStatusButton.textContent = 'Add Status';
+addStatusButton.onclick = () => {
+  const selectedStatus = statusEffectSelector.value;
+  console.log("Selected Status:", selectedStatus); 
+
+  if (selectedStatus) {
+    enemy.status += enemy.status ? `, ${selectedStatus}` : selectedStatus;
+    console.log("Updated Status:", enemy.status); 
+    updateEnemyUI();
+  }
+};
+enemyDiv.appendChild(statusEffectSelector);
+enemyDiv.appendChild(addStatusButton);
+
+   
+
+    enemiesList.appendChild(enemyDiv);
+
+  });
+
+
+
+  loadEnemyImg();
+}
+
+function removeEnemy(index) {
+  enemies.splice(index, 1);
+  updateEnemyUI();
+}
+
+//* Duplicate function
+// function removeStatusToken(index, tokenToRemove) {
+//   const statusTokens = enemies[index].status.split(',').map(token => token.trim());
+//   const updatedTokens = statusTokens.filter(token => token !== tokenToRemove);
+//   enemies[index].status = updatedTokens.join(', ');
+// }
+
+function addShieldToEnemy(enemyIndex, color) {
+  if (enemyIndex < enemies.length) {
+    enemies[enemyIndex].shields.push(color);
+    updateEnemyUI(); // Refresh the UI to show the added shield
+  }
+}
+
+// Function to remove a shield
+function removeShield(enemyIndex, shieldIndex) {
+  enemies[enemyIndex].shields.splice(shieldIndex, 1);
+}
+
+// Create Adjustment Div for Health
+function createAdjustmentDiv(currentValue, callback) {
+  const div = document.createElement('div');
+
+  const decreaseButton = document.createElement('button');
+  decreaseButton.textContent = '-';
+  decreaseButton.addEventListener('click', () => callback(-1));
+
+  const increaseButton = document.createElement('button');
+  increaseButton.textContent = '+';
+  increaseButton.addEventListener('click', () => callback(1));
+
+  const valueSpan = document.createElement('span');
+  valueSpan.textContent = ` Health: ${currentValue} `;
+
+  div.appendChild(decreaseButton);
+  div.appendChild(valueSpan);
+  div.appendChild(increaseButton);
+
+  return div;
+}
+
+function createRemoveButton(index) {
+  const button = document.createElement('button');
+  button.textContent = 'Remove';
+  button.addEventListener('click', () => removeEnemy(index));
+  return button;
+}
+
+
+function removeStatusToken(enemyIndex, tokenIndex) {
+  const statusTokens = enemies[enemyIndex].status.split(',').map(token => token.trim());
+  statusTokens.splice(tokenIndex, 1);
+  enemies[enemyIndex].status = statusTokens.join(', ');
+  updateEnemyUI();
+}
+
+function updateEnemyStatus(name, newStatus) {
+  const enemy = enemies.find(e => e.name === name);
+  if (enemy) {
+    enemy.status = newStatus;
+    displayEnemy(enemy); // Update the display of this enemy
+  }
+}
+
+function adjustStat(index, stat, change) {
+  enemies[index][stat] = parseInt(enemies[index][stat]) + change;
+  updateEnemyUI();
+}
+
+function createStatInput(value, changeHandler) {
+  const input = document.createElement('input');
+  input.type = 'number';
+  input.value = value;
+  input.addEventListener('change', changeHandler);
+  return input;
+}
+
+function toggleUI() {
+  const vaultHunterInfo = document.getElementById('vaultHunterInfo');
+  const enemyInfo = document.getElementById('enemyInfo');
+  const vaultHunterControls = document.querySelectorAll('.hunters-con, .vault-btns-con'); // Select all vault hunter related controls
+
+  if (showVaultHunter) {
+    vaultHunterInfo.style.display = 'block';
+    inventory.style.display = 'block'; // Show inventory if it's separate from vaultHunterInfo
+    enemyInfo.style.display = 'none';
+    vaultHunterControls.forEach(elem => elem.style.display = 'block'); // Show all vault hunter controls
+  } else {
+    vaultHunterInfo.style.display = 'none';
+    inventory.style.display = 'none'; // Hide inventory as well
+    enemyInfo.style.display = 'block';
+    vaultHunterControls.forEach(elem => elem.style.display = 'none'); // Hide all vault hunter controls
+    populateEnemyNames(); // Ensure enemy names are populated when showing enemy view
+  }
+
+  updateEnemyUI();
+}
+
+// Call populateEnemyNames on script load to initialize the dropdown
+populateEnemyNames();
+
+
+// Modify saveState and loadState functions to include enemies
+// ...
+
+// Initial call to set up the UI
+toggleUI();
+
+// Initialize the UI with currentVaultHunterIndex = 0
+initUI();
+// };
+
+document.getElementById("toggleView").addEventListener("click", function() {
+  console.log("Toggle button clicked"); 
+
+  onEnemiesSection = !onEnemiesSection;
+
+  if (onEnemiesSection) {
+    document.body.style.backgroundImage = "url('./assets/hunters/EnemiesMainBackground.png')";
+    this.style.backgroundImage = "url('./assets/hunters/Back_Vault_Hunters.jpg')"; // Switch to enemies image
+    this.style.right = 'auto'; // Remove right alignment
+    this.style.left = '0'; // Align to the left
+  } else {
+    document.body.style.backgroundImage = "url('./assets/hunters/HuntersBackgroundv2.png')";
+    this.style.backgroundImage = "url('./assets/enemies/Backs-FanFavorite.png')"; // Switch back to default image
+    this.style.left = 'auto'; // Remove left alignment
+    this.style.right = '0'; // Align to the right
+  }
+  toggleUI();
+});
   </script>
 </body>
 
