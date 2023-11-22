@@ -325,7 +325,7 @@ img {
 
 button.highlight {
   background-color: #ffc400; 
-  color: black; /* Change text color if needed */
+  color: black; 
 }
 
 #toggleView {
@@ -349,25 +349,103 @@ button.highlight {
   padding: 0; /* Adjust padding if necessary */
 }
 
+
+
+.color-selector-container {
+  display: inline-block;
+  width: 60px; 
+  height: 60px; 
+  padding: 5px;
+  box-sizing: border-box; 
+}
+
+.color-selector-container input[type="color"] {
+  width: 100%;
+  height: 100%;
+  border: none; 
+  padding: 0; 
+  cursor: pointer;
+}
+
+.color-selector-label {
+  color: #eeae25; 
+}
+
 #toggleView:hover {
   opacity: 1; /* Fully opaque on hover */
 }
 
 @media screen and (max-width: 768px) {
+  button {
+    padding: 15px 30px; /* Larger touch targets */
+    font-size: 16px; /* Larger font size */
+  }
+
+  .color-selector {
+    min-width: 60px; 
+    min-height: 60px; 
+    padding: 5px;
+  }
+
+ 
+  /* Override for enemy section to maintain original look */
+  .enemy-info-con button, 
+  .enemy-div button {
+    padding: 10px 20px; /* Original padding */
+    font-size: 14px; /* Original font size */
+  }
+
+  /* Ensure the layout of the enemy section remains unchanged */
   #enemiesList {
-    flex-direction: row;
-    flex-wrap: wrap; 
+    /* No changes - retain default styling */
   }
 
   .enemy-div {
-    flex-basis: calc(40% - 10px); /* Each enemy takes half the width */
-    margin-right: 10px; 
-    margin-bottom: 10px; /* Add bottom margin for wrapped items */
-    max-width: none; /* Override any max-width if set */
+    /* No changes - retain default styling */
   }
 
+
+
+  /* Adjust font sizes for readability */
+  h3, .inventory-item{
+    font-size: larger;
+  }
+
+  /* Increase size of touch targets */
+  .status-effects li {
+    font-size: larger;
+    padding: 5px;
+  }
+
+  #selectedItems{
+    width: 100%; /* Use full width for better display */
+  }
+
+  input[type="text"] {
+    width: 100%; /* Adjust the width as needed */
+    max-width: 300px;
+   
+  }
+
+    /* Style dropdown menus for mobile */
+    select {
+      font-size: 16px; 
+      padding: 10px; 
+    }
+
+  #toggleView {
+  width: 55px; /* Larger width */
+  padding: 10px; 
+  font-size: 16px; /* Larger font size for text inside */
+  }
+
+  /* Ensure dropdowns and buttons are easily tappable */
+  select, button {
+    min-height: 44px; 
+  }
   
 }
+
 
   </style>
 </head>
@@ -457,7 +535,10 @@ button.highlight {
             <select id="enemyNameSelector">
               <!-- Options for enemy names go here -->
             </select>
-            <input type="color" id="enemyColor" placeholder="Color">
+            <label for="enemyColor">Add Enemy Color:</label>
+            <div class="color-selector-container">
+              <input type="color" id="enemyColor" name="enemyColor">
+            </div>
             <button id="addEnemy" class="enemy-button">Add Enemy</button>
             <div id="enemiesList"></div>
           </div>
