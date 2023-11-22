@@ -446,6 +446,65 @@ button.highlight {
   
 }
 
+    @media screen and (max-width: 480px) {
+  button {
+    padding: 8px 15px; /* Smaller padding */
+    font-size: 12px; /* Smaller font size */
+  }
+
+  .color-selector {
+    min-width: 60px; 
+    min-height: 60px; 
+    padding: 5px;
+  }
+
+ 
+  /* Override for enemy section to maintain original look */
+  .enemy-info-con button, 
+  .enemy-div button {
+    padding: 10px 20px; /* Original padding */
+    font-size: 14px; /* Original font size */
+  }
+
+  /* Adjust font sizes for readability */
+  h3, .inventory-item{
+    font-size: larger;
+  }
+
+  /* Increase size of touch targets */
+  .status-effects li {
+    font-size: larger;
+    padding: 5px;
+  }
+
+  #selectedItems{
+    width: 100%; /* Use full width for better display */
+  }
+
+  input[type="text"] {
+    width: 100%; /* Adjust the width as needed */
+    max-width: 300px;
+   
+  }
+
+    /* Style dropdown menus for mobile */
+    select {
+      font-size: 16px; 
+      padding: 10px; 
+    }
+
+  #toggleView {
+  width: 55px; /* Larger width */
+  padding: 8px; 
+  font-size: 10px;
+  }
+
+  /* Ensure dropdowns and buttons are easily tappable */
+  select, button {
+    min-height: 44px; 
+  }
+  
+}
 
   </style>
 </head>
