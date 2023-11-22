@@ -69,14 +69,14 @@ button:hover {
 /* Styles for select dropdowns and text inputs */
 select,
 input[type="text"] {
-  /* width: 20%; */
+  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   background-color: #121212;
   color: hsl(54, 98%, 51%);
   border: 2px solid hwb(199 2% 20%);
 }
-
+ 
 /* Container for selected items */
 #selectedItems {
   border: 2px solid #135283;
@@ -169,6 +169,8 @@ img {
   height: 40%; */
 }
  
+
+
 
 /* Container for item information */
 .item-info-con {
@@ -276,12 +278,17 @@ img {
 
 #enemyImage {
   /* Styles for the image, ensure it doesn't stretch or skew */
-  max-width: 700px; 
+  max-width: 200px; 
   margin-bottom: 20px; /* Adds some space between the image and the dropdown */
 }
 
 #addEnemy, #enemyNameSelector {
   margin-bottom: 16px; /* Adds space below each element */
+}
+
+.displayed-enemy-image {
+  max-width: 70%; /* Smaller size on mobile devices */
+
 }
 
 .enemy-info-con button {
@@ -304,24 +311,31 @@ img {
   display: flex;
   flex-direction: row; /* Align children horizontally */
   flex-wrap: wrap; /* Allow wrapping to the next line*/
-  gap: 50px; /* Space between shield containers */
+  gap: 3px; /* Space between shield containers */
   justify-content: center; /* Center containers horizontally */
+  max-width: 100%;
 }
 
 .shield-container {
   display: flex;
   flex-direction: column; /* Stack elements vertically */
-  align-items: center; /* Center elements horizontally */
-  width: 60px; 
-  margin-bottom: 10px; /* Space between rows of shield containers */
+  align-items: center; /* Center items horizontally */
+  margin: 1px;
+  padding: 1px;
+
 }
 
 .shield-image {
-  max-width: 100px; 
+  max-width: 70px; /* Adjust as needed */
   height: auto;
-  margin-bottom: 5px; /* Space between image and button */
+  margin-bottom: 4px; /* Space between image and button */
 }
-
+.remove-shield-button {
+  padding: 4px 6px;
+  font-size: 12px;
+  width: auto; /* Adjust width as needed */
+  margin: 0; /* Reset margin */
+}
 
 button.highlight {
   background-color: #ffc400; 
@@ -384,29 +398,37 @@ button.highlight {
     padding: 5px;
   }
 
- 
-  /* Override for enemy section to maintain original look */
-  .enemy-info-con button, 
-  .enemy-div button {
-    padding: 10px 20px; /* Original padding */
-    font-size: 14px; /* Original font size */
-  }
-
   /* Ensure the layout of the enemy section remains unchanged */
   #enemiesList {
     /* No changes - retain default styling */
   }
 
-  .enemy-div {
-    /* No changes - retain default styling */
+  .displayed-enemy-image {
+    max-width: 70%; /* Smaller size on mobile devices */
+
   }
 
+  /* Increase size of text and headers */
+  .enemy-div h4, .enemy-div p, .enemy-div h3 {
+    font-size: 20px; /* Increase font size for better readability */
+    margin: 5px 0;
+  }
 
+  .enemy-div .shield-container, .enemy-div .status-effects {
+    font-size: 16px; /* Adjust as needed */
+  }
 
-  /* Increase size of touch targets */
-  .status-effects li {
-    font-size: larger;
-    padding: 5px;
+  /* Adjust other properties of .enemy-div as needed */
+  .enemy-div {
+    flex-basis: calc(20% - 10px); /* Adjust width for more items per row */
+    padding: 5px; /* Adjust padding */
+    margin-right: 5px; /* Adjust margin */
+    font-size: 20px; /* Adjust overall font size of enemy-div */
+  }
+
+  .remove-shield-button {
+    padding: 6px 10px; /* Smaller padding on mobile devices */
+    font-size: 12px; /* Smaller font size on mobile devices */
   }
 
   #selectedItems{
@@ -421,23 +443,19 @@ button.highlight {
 
     /* Style dropdown menus for mobile */
     select {
-      font-size: 16px; 
+      font-size: 14px; 
       padding: 10px; 
     }
 
   #toggleView {
-  width: 55px; /* Larger width */
+  width: 45px; /* Larger width */
   padding: 10px; 
   font-size: 16px; /* Larger font size for text inside */
   }
 
-  /* Ensure dropdowns and buttons are easily tappable */
-  select, button {
-    min-height: 44px; 
-  }
+
   
 }
-    
 
   </style>
 </head>
@@ -1466,7 +1484,8 @@ function updateEnemyUI() {
     // Add enemy image
     const enemyImage = document.createElement('img');
     enemyImage.src = enemy.image;
-    enemyImage.style.maxWidth = '200px';
+   
+    enemyImage.className = 'displayed-enemy-image';
     enemyDiv.appendChild(enemyImage);
 
      // Remove Enemy Button
@@ -1528,6 +1547,7 @@ function updateEnemyUI() {
   // Add a button to remove the shield
   const removeShieldButton = document.createElement('button');
   removeShieldButton.textContent = 'Remove';
+  removeShieldButton.className = 'remove-shield-button';
   removeShieldButton.onclick = () => {
     enemy.shields.splice(shieldIndex, 1);
     updateEnemyUI();
