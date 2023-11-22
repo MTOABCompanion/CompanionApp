@@ -375,7 +375,68 @@ button.highlight {
   opacity: 1; /* Fully opaque on hover */
 }
 
+@media screen and (max-width: 768px) {
 
+
+  .color-selector {
+    min-width: 60px; 
+    min-height: 60px; 
+    padding: 5px;
+  }
+
+ 
+  /* Override for enemy section to maintain original look */
+  .enemy-info-con button, 
+  .enemy-div button {
+    padding: 10px 20px; /* Original padding */
+    font-size: 14px; /* Original font size */
+  }
+
+  /* Ensure the layout of the enemy section remains unchanged */
+  #enemiesList {
+    /* No changes - retain default styling */
+  }
+
+  .enemy-div {
+    /* No changes - retain default styling */
+  }
+
+
+
+  /* Increase size of touch targets */
+  .status-effects li {
+    font-size: larger;
+    padding: 5px;
+  }
+
+  #selectedItems{
+    width: 100%; /* Use full width for better display */
+  }
+
+  input[type="text"] {
+    width: 100%; /* Adjust the width as needed */
+    max-width: 300px;
+   
+  }
+
+    /* Style dropdown menus for mobile */
+    select {
+      font-size: 16px; 
+      padding: 10px; 
+    }
+
+  #toggleView {
+  width: 55px; /* Larger width */
+  padding: 10px; 
+  font-size: 16px; /* Larger font size for text inside */
+  }
+
+  /* Ensure dropdowns and buttons are easily tappable */
+  select, button {
+    min-height: 44px; 
+  }
+  
+}
     
 
   </style>
