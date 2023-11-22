@@ -114,7 +114,7 @@ img {
 
 .status-effects li {
   padding: 2px;
-  font-size: 24px;
+  font-size: 20px;
   text-align: center;
   text-shadow: 2px 2px 2px #000;
 }
@@ -245,7 +245,7 @@ img {
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.89); /* Adjust opacity here, e.g., 0.5 for 50% opacity*/
+  background: rgba(0, 0, 0, 0.89); 
   z-index: 1; /* Ensure it's above the background image but below the content*/
 }
 
@@ -283,7 +283,7 @@ img {
 }
 
 .displayed-enemy-image {
-  max-width: 70%; /* Smaller size on mobile devices */
+  max-width: 70%;
 
 }
 
@@ -322,14 +322,14 @@ img {
 }
 
 .shield-image {
-  max-width: 70px; /* Adjust as needed */
+  max-width: 70px; 
   height: auto;
   margin-bottom: 4px; /* Space between image and button */
 }
 .remove-shield-button {
   padding: 4px 6px;
   font-size: 12px;
-  width: auto; /* Adjust width as needed */
+  width: auto; 
   margin: 0; /* Reset margin */
 }
 
@@ -343,7 +343,7 @@ button.highlight {
   width: 60px; 
   position: fixed; 
 
-  top: 0; /* Align to the top */
+  top: 20px;
   display: flex;
   align-items: center; /* Vertically center the content */
   justify-content: center; /* Horizontally center the content */
@@ -355,8 +355,8 @@ button.highlight {
   transition: opacity 0.3s ease;
   border: none;
   outline: none;
-  text-align: center; /* Center the text */
-  padding: 0; /* Adjust padding if necessary */
+  text-align: center; 
+  padding: 0; 
 }
 
 
@@ -386,8 +386,15 @@ button.highlight {
 }
 
 @media screen and (max-width: 768px) {
+  .hunters-con {
+    width: 70%; 
+    margin-bottom: 10px; /* Add space below this section */
+  }
 
-
+  .inventory-con {
+    width: 100%;
+    margin-top: 20px; /* Add space above for separation */
+  }
   .color-selector {
     min-width: 60px; 
     min-height: 60px; 
@@ -400,39 +407,39 @@ button.highlight {
   }
 
   .displayed-enemy-image {
-    max-width: 70%; /* Smaller size on mobile devices */
+    max-width: 65%; 
 
   }
 
   /* Increase size of text and headers */
   .enemy-div h4, .enemy-div p, .enemy-div h3 {
-    font-size: 20px; /* Increase font size for better readability */
+    font-size: 20px; 
     margin: 5px 0;
   }
 
   .enemy-div .shield-container, .enemy-div .status-effects {
-    font-size: 16px; /* Adjust as needed */
+    font-size: 14px; 
   }
 
   /* Adjust other properties of .enemy-div as needed */
   .enemy-div {
-    flex-basis: calc(20% - 10px); /* Adjust width for more items per row */
-    padding: 5px; /* Adjust padding */
-    margin-right: 5px; /* Adjust margin */
-    font-size: 20px; /* Adjust overall font size of enemy-div */
+    flex-basis: calc(15% - 10px); 
+    padding: 5px;
+    margin-right: 5px; 
+    font-size: 18px; 
   }
 
   .remove-shield-button {
-    padding: 6px 10px; /* Smaller padding on mobile devices */
-    font-size: 12px; /* Smaller font size on mobile devices */
+    padding: 6px 10px; 
+    font-size: 12px; 
   }
 
   #selectedItems{
-    width: 100%; /* Use full width for better display */
+    width: 90%; 
   }
 
   input[type="text"] {
-    width: 100%; /* Adjust the width as needed */
+    width: 100%; 
     max-width: 300px;
    
   }
@@ -443,15 +450,28 @@ button.highlight {
       padding: 10px; 
     }
 
-  #toggleView {
-  width: 45px; /* Larger width */
-  padding: 10px; 
-  font-size: 16px; /* Larger font size for text inside */
-  }
+    #toggleView {
+      position: fixed; /* Fixed position relative to the viewport */
+      top: 20px; /* Distance from the top of the viewport */
+      right: 20px; /* Distance from the right of the viewport */
+ 
+      height: auto; /* Adjust height as needed */
+      width: auto; /* Adjust width as needed */
+      padding: 10px; /* Padding inside the button */
+      font-size: 16px; /* Font size of the text */
+      background-image: url('./assets/enemies/Backs-FanFavorite.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.3; 
+      z-index: 1000; /* High z-index to stay on top */
+     
+    }
 
 
   
 }
+
+
   </style>
 </head>
 
