@@ -192,7 +192,7 @@ img {
 .inventory-con {
   border-left: 2px solid #1776b6;
   margin-top: 7.8px;
-  width: 70%;
+  width: 90%;
   /* float: right; */
 }
 
@@ -391,14 +391,23 @@ button.highlight {
 
 @media screen and (max-width: 768px) {
 
-  #inventory h3 {
-    font-size: 20px; /* Smaller font size */
-  }
-
   #selectedItems {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around; /* Adjust as per your design */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items in the container */
+    width: 100%; /* Full width of parent */
+    padding: 8px; /* Optional: Adjust padding as needed */
+  }
+
+  .inventory-item {
+    width: 100%; /* Ensure items do not exceed container width */
+    margin-bottom: 8px; /* Space between items */
+    text-align: center; /* Center text if needed */
+  }
+
+  #inventory h3 {
+    font-size: 18px; /* Adjust font size for headers */
+    padding: 4px; /* Reduce padding */
   }
 
   .hunters-con {
@@ -432,31 +441,35 @@ button.highlight {
 
   /* Adjust other properties of .enemy-div as needed */
   .enemy-div {
-    flex-basis: 45%; 
+    flex-basis: 30%; 
     padding: 5px;
     margin-bottom: 10px;
     margin-right: 2px; 
-    font-size: 20px; 
+    font-size: 10px; 
   }
 
-  .enemy-div img {
-    max-width: 100%; /* Ensure image scales within the container */
-    height: auto;
-  }
-  
+
   .remove-shield-button {
     padding: 6px 10px; 
     font-size: 12px; 
-  }
-
-  #selectedItems{
-    width: 70%; 
   }
 
   input[type="text"] {
     width: 100%; 
     max-width: 300px;
    
+  }
+
+  .status-effects ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .status-effects li {
+    padding: 2px;
+    font-size: 18px;
+    text-align: center;
+    text-shadow: 2px 2px 2px #000;
   }
 
     /* Style dropdown menus for mobile */
@@ -485,7 +498,6 @@ button.highlight {
 
   
 }
-
   </style>
 </head>
 
