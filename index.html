@@ -1548,7 +1548,12 @@ function updateEnemyUI() {
     colorBox.style.marginBottom = '10px'; // Space below the box
 
     enemyDiv.appendChild(colorBox); // Append the color box to enemyDiv
-
+    
+     // Display Enemy Name
+    const enemyName = document.createElement('h4');
+    enemyName.textContent = enemy.name;
+    enemyDiv.appendChild(enemyName);
+    
     // Add enemy image
     const enemyImage = document.createElement('img');
     enemyImage.src = enemy.image;
@@ -1565,10 +1570,7 @@ function updateEnemyUI() {
      };
      enemyDiv.appendChild(removeEnemyButton);
 
-    // Display Enemy Name
-    const enemyName = document.createElement('h4');
-    enemyName.textContent = enemy.name;
-    enemyDiv.appendChild(enemyName);
+ 
 
     // Health Adjustment UI
     const healthDiv = createAdjustmentDiv(enemy.health, (value) => {
