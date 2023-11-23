@@ -5,6 +5,10 @@
   <title>Vault Hunter</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+/*  {
+  box-sizing: border-box;
+} */
+
 *,
 *::before,
 *::after {
@@ -65,7 +69,7 @@ button:hover {
 /* Styles for select dropdowns and text inputs */
 select,
 input[type="text"] {
-  width: 100%;
+  width: 80%;
   padding: 12px 20px;
   margin: 8px 0;
   background-color: #121212;
@@ -198,7 +202,7 @@ img {
 #enemiesList {
   display: flex;
   flex-wrap: wrap; 
-  gap: 10px; /* Space between items */
+  gap: 6px; /* Space between items */
   justify-content: center; /* Center items horizontally */
   max-width: 100%;
   width: 100%;
@@ -414,19 +418,17 @@ button.highlight {
   /* Increase size of text and headers */
   .enemy-div h4, .enemy-div p, .enemy-div h3 {
     font-size: 20px; 
-    margin: 5px 0;
+    margin: 2px 0;
   }
 
-  .enemy-div .shield-container, .enemy-div .status-effects {
-    font-size: 14px; 
-  }
+
 
   /* Adjust other properties of .enemy-div as needed */
   .enemy-div {
     flex-basis: calc(15% - 10px); 
-    padding: 5px;
-    margin-right: 5px; 
-    font-size: 18px; 
+    padding: 2px;
+    margin-right: 2px; 
+    font-size: 20px; 
   }
 
   .remove-shield-button {
@@ -435,7 +437,7 @@ button.highlight {
   }
 
   #selectedItems{
-    width: 90%; 
+    width: 70%; 
   }
 
   input[type="text"] {
@@ -470,7 +472,6 @@ button.highlight {
 
   
 }
-
 
   </style>
 </head>
@@ -1800,13 +1801,11 @@ document.getElementById("toggleView").addEventListener("click", function() {
   if (onEnemiesSection) {
     document.body.style.backgroundImage = "url('./assets/hunters/EnemiesMainBackground.png')";
     this.style.backgroundImage = "url('./assets/hunters/Back_Vault_Hunters.jpg')"; // Switch to enemies image
-    this.style.right = 'auto'; // Remove right alignment
-    this.style.left = '0'; // Align to the left
+
   } else {
     document.body.style.backgroundImage = "url('./assets/hunters/HuntersBackgroundv2.png')";
     this.style.backgroundImage = "url('./assets/enemies/Backs-FanFavorite.png')"; // Switch back to default image
-    this.style.left = 'auto'; // Remove left alignment
-    this.style.right = '0'; // Align to the right
+
   }
   toggleUI();
 });
