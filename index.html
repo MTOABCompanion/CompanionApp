@@ -311,7 +311,7 @@ img {
   display: flex;
   flex-direction: row; /* Align children horizontally */
   flex-wrap: wrap; /* Allow wrapping to the next line*/
-  gap: 3px; /* Space between shield containers */
+  gap: 2px; /* Space between shield containers */
   justify-content: center; /* Center containers horizontally */
   max-width: 100%;
 }
@@ -332,7 +332,7 @@ img {
 }
 .remove-shield-button {
   padding: 4px 6px;
-  font-size: 12px;
+  font-size: 10px;
   width: auto; 
   margin: 0; /* Reset margin */
 }
@@ -437,7 +437,29 @@ button.highlight {
     margin: 2px 0;
   }
 
+ /* Styles for 'Remove Enemy' button */
+ .enemy-info-con button, 
+ .enemy-div button {
+   padding: 8px 12px; /* Adjust padding for smaller buttons */
+   font-size: 12px; /* Smaller font size for mobile */
+   margin: 5px 0; /* Add margin for spacing */
+ }
 
+ /* Styles for 'Increase/Decrease' health buttons */
+ .health-text button {
+   padding: 4px 6px; /* Smaller padding */
+   font-size: 12px; /* Smaller font size */
+   margin: 2px; /* Margin around buttons for easier touch */
+ }
+
+ .health-text {
+   flex-direction: column; /* Stack buttons vertically for easier touch */
+   align-items: center; /* Center align buttons */
+ }
+
+ .health-text span {
+   margin-bottom: 4px; /* Space between text and buttons */
+ }
 
   /* Adjust other properties of .enemy-div as needed */
   .enemy-div {
@@ -445,7 +467,7 @@ button.highlight {
     padding: 5px;
     margin-bottom: 10px;
     margin-right: 2px; 
-    font-size: 10px; 
+    font-size: 18px; 
   }
 
 
@@ -498,6 +520,7 @@ button.highlight {
 
   
 }
+
   </style>
 </head>
 
